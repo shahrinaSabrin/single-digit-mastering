@@ -26,7 +26,8 @@ export default function App() {
 
   const handleMathSubmit = (totalTime, total, correct, incorrect) => {
     setIsClockActive(false);
-    handleRoundEnd(totalTime, { total, correct, incorrect }); // Pass the values to handleRoundEnd
+    handleRoundEnd(totalTime, { total, correct, incorrect });
+     // Pass the values to handleRoundEnd
   };
 
   return (
@@ -40,6 +41,7 @@ export default function App() {
           </div>
           <div className="">
             <Clock
+              key={funMathKey}
               roundStarted={isGameStarted}
               roundEnded={{ mathResults }}
               endTime={endTime}

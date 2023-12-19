@@ -41,8 +41,7 @@ export default function App() {
           </div>
           <div className="">
             <Clock
-              key={funMathKey}
-              roundStarted={isGameStarted}
+              // roundStarted={isGameStarted}
               roundEnded={{ mathResults }}
               endTime={endTime}
               isActive={isClockActive}

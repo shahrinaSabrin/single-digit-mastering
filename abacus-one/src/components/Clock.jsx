@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Clock = ({ key, roundEnded, endTime, isActive, onStartGame }) => {
+const Clock = ({ roundEnded, endTime, isActive, onStartGame }) => {
   const [milliseconds, setMilliseconds] = useState(endTime * 1000);
   const [finalTime, setFinalTime] = useState(null);
   const [speed, setSpeed] = useState(null);

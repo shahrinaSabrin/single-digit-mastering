@@ -28,7 +28,7 @@ export default function App() {
   };
 
   return (
-    <div className="flex-col py-4 items-center justify-center h-screen px-60  ">
+    <div className="flex-col py-4 items-center justify-center h-screen px-60 gap-8 ">
       {isGameStarted ? (
         <div className="">
           <div className="flex justify-center">
@@ -61,7 +61,7 @@ export default function App() {
             />
             <img src="../public/Images/images.jpeg" alt="" />
           </div>
-          <div className="flex justify-center py-4">
+          <div className="flex justify-center py-4 animate-bounce">
             <button
               onClick={handleStartGame}
               className="bg-orange-600 text-white font-bold py-2 px-4 rounded text-xl"

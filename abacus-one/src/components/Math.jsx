@@ -82,9 +82,9 @@ const FunMathComponent = ({ onRoundEnd, onSubmit }) => {
   }
 
   return (
-    <div className="text-center w-full py-8 px-8 bg-url">
-      <div id="equationTable" className="flex justify-center items-center bg-blue-300 opacity-90 py-4 rounded-md">
-        <table id="equationsTable">
+   <div className="text-center w-full py-8 px-8 ">
+      <div className='bg-no-repeat-cover bg-abacus-url'><div id="equationTable" className="flex justify-center bg-blue-200 items-center opacity-90 py-8 px-12 rounded-md ">
+        <table id="equationsTable" className=''>
           <tbody>
             {equations.map((eq) => (
               <tr key={eq.mathNO} className="equation-row">
@@ -93,7 +93,7 @@ const FunMathComponent = ({ onRoundEnd, onSubmit }) => {
                 </td> */}
                 <td className="equation-cell py-4">
                   <div className="equation-box">
-                    <span className="equation-text text-2xl font-bold">{eq.equationText}</span>
+                    <span className="equation-text text-orange-700 text-2xl font-bold">{eq.equationText}</span>
                   </div>
                 </td>
                 <td className="equation-cell text-orange-800 text-3xl font bold">
@@ -127,15 +127,15 @@ const FunMathComponent = ({ onRoundEnd, onSubmit }) => {
             ))}
           </tbody>
         </table>
-      </div>
-      <button
+      </div ></div>
+      <div className='py-4'><button
         onClick={handleSubmit}
         disabled={submitted}
-        className="mt-4 bg-orange-600 text-white text-2xl font-bold py-4 px-8 rounded-md"
+        className="mt-4 bg-orange-600 text-white text-2xl font-bold py-4 px-8 rounded-md animate-bounce"
       >
-        Submit
-      </button>
-    </div>
+        Submit Your Answer
+      </button></div></div>
+   
   );
 };
 

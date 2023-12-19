@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-const FunMathComponent = ({ onRoundEnd, onSubmit }) => {
+const FunMathComponent = ({ onRoundEnd, onSubmit,key }) => {
   const [equations, setEquations] = useState([]);
   const [submitted, setSubmitted] = useState(false);
   const [mathResults, setMathResults] = useState({ total: 0, correct: 0, incorrect: 0 });
@@ -11,7 +11,7 @@ const FunMathComponent = ({ onRoundEnd, onSubmit }) => {
   useEffect(() => {
     generateEquations();
     setStartTime(Date.now());
-  }, []);
+  }, [key]);
 
   useEffect(() => {
     if (submitted) {
@@ -79,11 +79,12 @@ const FunMathComponent = ({ onRoundEnd, onSubmit }) => {
     const endTime = Date.now();
     const totalTime = (endTime - startTime) / 1000;
     onSubmit(totalTime,total,correct,incorrect);
+    window.scrollTo(0, 0);
   }
 
   return (
-   <div className="text-center w-full py-8 px-8 ">
-      <div className='bg-no-repeat-cover bg-abacus-url'><div id="equationTable" className="flex justify-center bg-blue-200 items-center opacity-90 py-8 px-12 rounded-md ">
+   <div className="text-center w-full py-8 px:2 lg:px-8 ">
+      <div className='bg-no-repeat-cover bg-abacus-url'><div id="equationTable" className="flex justify-center bg-blue-200 items-center opacity-80 py-8 px-12 rounded-md ">
         <table id="equationsTable" className=''>
           <tbody>
             {equations.map((eq) => (
@@ -99,7 +100,7 @@ const FunMathComponent = ({ onRoundEnd, onSubmit }) => {
                 <td className="equation-cell text-orange-800 text-3xl font bold">
                   <input
                     type="text"
-                    style={{ fontSize: '24px' }}
+                    style={{ fontSize: '12px' }}
                     placeholder='Enter Your Answer'
                     value={eq.userInput}
 

@@ -5,6 +5,7 @@ import Clock from "./components/Clock";
 export default function App() {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [endTime, setEndTime] = useState(0);
+  const [funMathKey, setFunMathKey] = useState(0);
   const [mathResults, setMathResults] = useState({
     total: 0,
     correct: 0,
@@ -15,6 +16,7 @@ export default function App() {
   const handleStartGame = () => {
     setIsGameStarted(true);
     setIsClockActive(true);
+    setFunMathKey((prevKey) => prevKey + 1);
   };
 
   const handleRoundEnd = (time, mathResults) => {
@@ -28,37 +30,40 @@ export default function App() {
   };
 
   return (
-    <div className="flex-col py-4 items-center justify-center h-screen px-60 gap-8 ">
+    <div className="flex-col py-4 items-center justify-center h-screen px-2 md:px-12 lg:px-40 gap-8 ">
       {isGameStarted ? (
         <div className="">
           <div className="flex justify-center">
-            <h1 className="text-3xl font-bold mb-4 text-orange-600">
+            <h1 className="text-2xl lg:text-4xl font-bold mb-4 text-orange-600">
               Welcome to Fun Math Game!
             </h1>
           </div>
           <div className="">
-             <Clock
+            <Clock
               roundStarted={isGameStarted}
               roundEnded={{ mathResults }}
               endTime={endTime}
               isActive={isClockActive}
+              onStartGame={handleStartGame}
             />
             <FunMathComponent
+              key={funMathKey}
               onRoundEnd={handleRoundEnd}
               onSubmit={handleMathSubmit}
             />
-           
           </div>
         </div>
       ) : (
         <div>
           {" "}
-        <div className="flex justify-center">  <h1 className=" py-4 text-4xl font-bold italic text-orange-600">Play the Fun Math Game to Explore Your Math Skills!</h1></div>
-          <div className="flex justify-center gap-8 py-8">
-            <img
-              src="../public/Images/images (1).jpeg" width='full'
-              alt=""
-            />
+          <div className="px-2  flex justify-center">
+            {" "}
+            <h1 className=" py-4 text-2xl lg:text-4xl font-bold italic text-orange-600">
+              Play the Fun Math Game to Explore Your Math Skills!
+            </h1>
+          </div>
+          <div className="flex justify-center px-4 gap-4 lg-gap-8 py-8">
+            <img src="../public/Images/images (1).jpeg" width="full" alt="" />
             <img src="../public/Images/images.jpeg" alt="" />
           </div>
           <div className="flex justify-center py-4 animate-bounce">

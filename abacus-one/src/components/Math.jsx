@@ -94,13 +94,13 @@ const FunMathComponent = ({ onRoundEnd, onSubmit,key }) => {
                 </td> */}
                 <td className="equation-cell py-4">
                   <div className="equation-box">
-                    <span className="equation-text text-orange-700 text-2xl font-bold">{eq.equationText}</span>
+                    <span className="equation-text text-orange-700 text-xl lg:text-2xl font-bold">{eq.equationText}</span>
                   </div>
                 </td>
-                <td className="equation-cell text-orange-800 text-3xl font bold">
+                <td className="equation-cell text-orange-800 lg:text-3xl font bold">
                   <input
                     type="text"
-                    style={{ fontSize: '12px' }}
+                    // style={{ fontSize: '20px' }}
                     placeholder='Enter Your Answer'
                     value={eq.userInput}
 
